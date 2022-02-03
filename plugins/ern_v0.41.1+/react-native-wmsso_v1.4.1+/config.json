@@ -1,0 +1,44 @@
+{
+  "android": {
+    "root": "android",
+    "dependencies": [
+      "com.walmart.ssae.sms.sso:wmsso:2.3.0"
+    ],
+    "repositories": [
+      "maven { url 'https://repository.walmart.com/content/groups/public/' }"
+    ]
+  },
+  "ios": {
+    "applyPatch": {
+      "patch": "wmsso.pbxproj.patch",
+      "root": "{{{projectName}}}/Libraries/WMSSOReactNative"
+    },
+    "copy": [
+      {
+        "dest": "{{{projectName}}}/Libraries/WMSSOReactNative",
+        "source": "ios/WMSSOReactNative/*"
+      },
+      {
+        "dest": "{{{projectName}}}/Resources",
+        "source": "ios/WMSSOReactNative/WMSSOReactNative/assets/*"
+      }
+    ],
+    "pbxproj": {
+      "addHeaderSearchPath": [
+        "\"$(SRCROOT)/{{{projectName}}}/Libraries/WMSSOReactNative/**\""
+      ],
+      "addProject": [
+        {
+          "group": "Libraries",
+          "path": "WMSSOReactNative/WMSSOReactNative.xcodeproj",
+          "staticLibs": [
+            {
+              "name": "libWMSSOReactNative.a",
+              "target": "WMSSOReactNative"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

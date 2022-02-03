@@ -1,0 +1,45 @@
+{
+  "android": {
+    "root": "android",
+    "dependencies": [
+      "implementation 'com.walmart.ssae.sms.sumo:sumosdk:2.5.7-SNAPSHOT'",
+      "implementation 'com.walmart.ssae.sms.sumo:sumogcm:2.5.7-SNAPSHOT'",
+      "implementation 'com.walmart.ssae.sms.sumo:sumofcm:2.5.7-SNAPSHOT'",
+      "implementation 'com.walmart.platform.mobile.android:sumoheadsupclient:1.0.3'",
+      "implementation 'com.google.firebase:firebase-messaging:17.5.0'",
+      "implementation 'com.google.firebase:firebase-core:16.0.8'",
+      "implementation 'com.walmart.ssae.sms.sso:wmsso:2.3.0'"
+    ],
+    "permissions": [
+      "com.walmart.sumo.mqtt.START_MQTT",
+      "com.walmart.sumo.mqtt.RECEIVE_MQTT_PUSH",
+      "com.walmart.ssae.sms.sumo.azureclient.android.services.START_AZURE",
+      "com.walmart.ssae.sms.sumo.azureclient.android.services.RECEIVE_AZURE_PUSH"
+    ]
+  },
+  "ios": {
+    "copy": [
+      {
+        "dest": "{{{projectName}}}/Libraries/SumoPluginRN",
+        "source": "ios/SumoPluginRN/*"
+      }
+    ],
+    "pbxproj": {
+      "addHeaderSearchPath": [
+        "\"$(SRCROOT)/{{{projectName}}}/Libraries/SumoPluginRN/**\""
+      ],
+      "addProject": [
+        {
+          "group": "Libraries",
+          "path": "SumoPluginRN/SumoPluginRN.xcodeproj",
+          "staticLibs": [
+            {
+              "name": "libSumoPluginRN.a",
+              "target": "SumoPluginRN"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

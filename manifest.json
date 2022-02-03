@@ -1,0 +1,12 @@
+{
+  "default": {
+    "targetNativeDependencies": [
+      "react-native-httpapi@1.60.2",
+      "react-native-wm-barcode@2.32.0-patch.5",
+      "react-native-wmsso@1.4.1",
+      "react-native-sumo-sdk@2.7.4-rc.9"
+    ],
+    "targetJsDependencies": [
+    ]
+  }
+}

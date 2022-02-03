@@ -1,0 +1,28 @@
+{
+  "android": {
+    "copy": [
+      { "source": "android/libs/*.jar", "dest": "libs" },
+      { "source": "android/libs/*.aar", "dest": "libs" }
+    ],
+    "root": "android",
+    "dependencies": [
+      "implementation files('../libs/DataCollection.jar')",
+      "implementation files('../libs/gpiolib_serial_v1.7.jar')",
+      "implementation files('../libs/scanner_serial_v1.9.jar')",
+      "implementation files('../libs/platform_sdk_v4.0.0802.jar')",
+      "implementation files('../libs/dms.aar')",
+      "implementation files('../libs/camerahelper.aar')",
+      "implementation files('../libs/audiohelper.aar')"
+    ]
+  },
+  "ios": {
+    "requiresManualLinking": true,
+    "replaceInFile": [
+        {
+          "path": "node_modules/react-native-wm-barcode/react-native-wm-barcode.podspec",
+          "string": "ios, \"11.0\"",
+          "replaceWith": "ios, \"10.0\""
+        }
+      ]
+  }
+}

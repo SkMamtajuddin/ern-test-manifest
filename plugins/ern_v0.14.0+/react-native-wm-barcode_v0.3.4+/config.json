@@ -1,0 +1,47 @@
+{
+  "android": {
+    "copy": [
+      { "source": "android/libs/*.jar", "dest": "libs" },
+      { "source": "android/libs/*.aar", "dest": "libs" }
+    ],
+    "root": "android",
+    "dependencies": [
+      "implementation files('../libs/DataCollection.jar')",
+      "implementation files('../libs/gpiolib_serial_v1.7.jar')",
+      "implementation files('../libs/scanner_serial_v1.9.jar')",
+      "implementation files('../libs/platform_sdk_v4.0.0802.jar')",
+      "implementation files('../libs/dms.aar')",
+      "implementation files('../libs/camerahelper.aar')",
+      "implementation files('../libs/audiohelper.aar')"
+    ]
+  },
+  "ios": {
+    "copy": [
+      {
+        "dest": "{{{projectName}}}/Libraries/WMBarcodeScanner",
+        "source": "ios/WMBarcodeScanner/*"
+      },
+      {
+        "dest": "{{{projectName}}}/Resources",
+        "source": "ios/WMBarcodeScanner/WMBarcodeScanner/assets/*"
+      }
+    ],
+    "pbxproj": {
+      "addHeaderSearchPath": [
+        "\"$(SRCROOT)/{{{projectName}}}/Libraries/WMBarcodeScanner/**\""
+      ],
+      "addProject": [
+        {
+          "group": "Libraries",
+          "path": "WMBarcodeScanner/WMBarcodeScanner.xcodeproj",
+          "staticLibs": [
+            {
+              "name": "libWMBarcodeScanner.a",
+              "target": "WMBarcodeScanner"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

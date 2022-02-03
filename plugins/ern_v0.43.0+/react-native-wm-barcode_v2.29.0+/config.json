@@ -1,0 +1,54 @@
+{
+  "android": {
+    "root": "android",
+    "dependencies": [
+      "androidx.appcompat:appcompat:1.2.0",
+      "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0",
+      "com.google.guava:guava:30.1.1-android",
+      "com.walmart.ssmp.libs:data-collection-android:1.0.0",
+      "com.walmart.ssmp.libs:digimarc-android:3.3.0",
+      "com.walmart.ssmp.libs:gpiolib-serial-android:1.7.0",
+      "com.walmart.ssmp.libs:rhino-mobility-scanner-android:1.0.0",
+      "com.walmart.ssmp.libs:scanner-serial-android:1.9.0",
+      "com.walmart.ssmp.libs:platform-sdk-android:4.0.0802"
+    ],
+    "repositories": [
+      "maven { url 'https://repository.walmart.com/content/repositories/pangaea_releases' }"
+    ],
+    "permissions": [
+      "android.permission.ACCESS_WIFI_STATE",
+      "android.permission.CAMERA",
+      "android.permission.GPIO",
+      "android.permission.RECORD_AUDIO",
+      "com.honeywell.decode.permission.DECODE"
+    ],
+    "copy": [
+      {
+        "source": "android/src/main/res/*",
+        "dest": "lib/src/main/res/wmbarcode"
+      }
+    ],
+    "replaceInFile": [
+      {
+        "path": "lib/src/main/java/com/walmart/barcodescanner/DigimarcScannerActivity.java",
+        "string": "com.walmart.wmbarcode.react.R",
+        "replaceWith": "com.walmartlabs.ern.container.R"
+      },
+      {
+        "path": "lib/src/main/java/com/walmart/barcodescanner/DigimarcScannerView.java",
+        "string": "com.walmart.wmbarcode.react.R",
+        "replaceWith": "com.walmartlabs.ern.container.R"
+      }
+    ]
+  },
+  "ios": {
+    "requiresManualLinking": true,
+    "replaceInFile": [
+      {
+        "path": "node_modules/react-native-wm-barcode/react-native-wm-barcode.podspec",
+        "string": "ios, \"11.0\"",
+        "replaceWith": "ios, \"10.0\""
+      }
+    ]
+  }
+}

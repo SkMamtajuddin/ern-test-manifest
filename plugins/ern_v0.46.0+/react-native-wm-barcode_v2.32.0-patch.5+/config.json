@@ -1,0 +1,64 @@
+{
+  "android": {
+    "root": "android",
+    "dependencies": [
+      "implementation 'androidx.appcompat:appcompat:1.2.0'",
+      "implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'",
+      "implementation 'com.walmart.ssmp.libs:data-collection-android:1.0.0'",
+      "implementation 'com.walmart.ssmp.libs:digimarc-android:3.4.2-debug'",
+      "implementation 'com.walmart.ssmp.libs:gpiolib-serial-android:1.7.0'",
+      "implementation 'com.walmart.ssmp.libs:rhino-mobility-scanner-android:1.0.0'",
+      "implementation 'com.walmart.ssmp.libs:scanner-serial-android:1.9.0'",
+      "implementation 'com.walmart.ssmp.libs:platform-sdk-android:4.0.0802'",
+      "androidTestImplementation 'androidx.test.ext:junit:1.1.2'",
+      "androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'"
+    ],
+    "repositories": [
+      "maven { url 'https://repository.walmart.com/content/repositories/pangaea_releases' }"
+    ],
+    "permissions": [
+      "android.permission.ACCESS_WIFI_STATE",
+      "android.permission.CAMERA",
+      "android.permission.GPIO",
+      "android.permission.RECORD_AUDIO",
+      "com.honeywell.decode.permission.DECODE"
+    ],
+    "copy": [
+      {
+        "source": "android/src/main/res/*",
+        "dest": "lib/src/main/res/wmbarcode"
+      }
+    ],
+    "replaceInFile": [
+      {
+        "path": "lib/src/main/java/com/walmart/barcodescanner/DigimarcScannerActivity.java",
+        "string": "com.walmart.wmbarcode.react.R",
+        "replaceWith": "com.walmartlabs.ern.container.R"
+      },
+      {
+        "path": "lib/src/main/java/com/walmart/barcodescanner/DigimarcScannerView.java",
+        "string": "com.walmart.wmbarcode.react.R",
+        "replaceWith": "com.walmartlabs.ern.container.R"
+      }
+    ]
+  },
+  "ios": {
+    "requiresManualLinking": true,
+    "pbxproj": {
+      "addEmbeddedFramework": [
+        "../../node_modules/react-native-wm-barcode/Frameworks/DMSDK.xcframework"
+      ]
+    },
+    "extraPodfileStatements": [
+      "use_frameworks! :linkage => :static",
+      "use_modular_headers!"
+    ],
+    "replaceInFile": [
+      {
+        "path": "node_modules/react-native-wm-barcode/ios/WMBarcodeScanner/WMBarcodeScanner/DigimarcUI/DigimarcBarcodeScanner.m",
+        "string": "NSBundle mainBundle",
+        "replaceWith": "NSBundle bundleForClass:self.class"
+      }
+    ]
+  }
+}

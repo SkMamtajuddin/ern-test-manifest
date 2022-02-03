@@ -1,0 +1,105 @@
+diff --git a/WMSSOReactNative.xcodeproj/project.pbxproj b/WMSSOReactNative.xcodeproj/project.pbxproj
+index 529097e..da914ee 100644
+--- a/WMSSOReactNative.xcodeproj/project.pbxproj
++++ b/WMSSOReactNative.xcodeproj/project.pbxproj
+@@ -7,6 +7,22 @@
+ 	objects = {
+ 
+ /* Begin PBXBuildFile section */
++		6E8A1A9A24A5599D00B0A1A4 /* WMUser.h in Headers */ = {isa = PBXBuildFile; fileRef = F0F608271F478629009D114D /* WMUser.h */; };
++		6E8A1A9B24A5599D00B0A1A4 /* WMSSO.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D2F7EDE21ADCEA00076FCF7 /* WMSSO.h */; };
++		6E8A1A9C24A5599D00B0A1A4 /* WMUserAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = F0F608291F478629009D114D /* WMUserAdapter.h */; };
++		6E8A1A9D24A5599D00B0A1A4 /* WMAccountStore.h in Headers */ = {isa = PBXBuildFile; fileRef = F0F608131F4784FD009D114D /* WMAccountStore.h */; };
++		6E8A1A9E24A5599D00B0A1A4 /* WMAccountStoreFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = F0F608151F4784FD009D114D /* WMAccountStoreFactory.h */; };
++		6E8A1A9F24A5599D00B0A1A4 /* WMAccountManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DEACFE721ADB07100F928E4 /* WMAccountManager.h */; };
++		6E8A1AA024A5599D00B0A1A4 /* WMAccountAuthenticationFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = F0F6080B1F4784D5009D114D /* WMAccountAuthenticationFactory.h */; };
++		6E8A1AA124A5599D00B0A1A4 /* WMAccountAuthentication.h in Headers */ = {isa = PBXBuildFile; fileRef = F0F6080A1F4784D5009D114D /* WMAccountAuthentication.h */; };
++		6E8A1AA224A559D700B0A1A4 /* WMUser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F0F608271F478629009D114D /* WMUser.h */; };
++		6E8A1AA324A559D700B0A1A4 /* WMSSO.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9D2F7EDE21ADCEA00076FCF7 /* WMSSO.h */; };
++		6E8A1AA424A559D700B0A1A4 /* WMUserAdapter.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F0F608291F478629009D114D /* WMUserAdapter.h */; };
++		6E8A1AA524A559D700B0A1A4 /* WMAccountStore.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F0F608131F4784FD009D114D /* WMAccountStore.h */; };
++		6E8A1AA624A559D700B0A1A4 /* WMAccountStoreFactory.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F0F608151F4784FD009D114D /* WMAccountStoreFactory.h */; };
++		6E8A1AA724A559D700B0A1A4 /* WMAccountAuthenticationFactory.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F0F6080B1F4784D5009D114D /* WMAccountAuthenticationFactory.h */; };
++		6E8A1AA824A559D700B0A1A4 /* WMAccountAuthentication.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F0F6080A1F4784D5009D114D /* WMAccountAuthentication.h */; };
++		6E8A1AA924A559E400B0A1A4 /* WMAccountManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9DEACFE721ADB07100F928E4 /* WMAccountManager.h */; };
+ 		9DEACFDD21ADAD6D00F928E4 /* BiometricManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DEACFDB21ADAD6D00F928E4 /* BiometricManager.m */; };
+ 		9DEACFE021ADAE2600F928E4 /* WMUser+Auth.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DEACFDF21ADAE2600F928E4 /* WMUser+Auth.m */; };
+ 		9DEACFE321ADAF8600F928E4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DEACFE221ADAF8600F928E4 /* Reachability.m */; };
+@@ -31,9 +47,17 @@
+ 		F0F607A31F477DB4009D114D /* CopyFiles */ = {
+ 			isa = PBXCopyFilesBuildPhase;
+ 			buildActionMask = 2147483647;
+-			dstPath = "include/$(PRODUCT_NAME)";
++			dstPath = include/WMSSO;
+ 			dstSubfolderSpec = 16;
+ 			files = (
++				6E8A1AA924A559E400B0A1A4 /* WMAccountManager.h in CopyFiles */,
++				6E8A1AA224A559D700B0A1A4 /* WMUser.h in CopyFiles */,
++				6E8A1AA324A559D700B0A1A4 /* WMSSO.h in CopyFiles */,
++				6E8A1AA424A559D700B0A1A4 /* WMUserAdapter.h in CopyFiles */,
++				6E8A1AA524A559D700B0A1A4 /* WMAccountStore.h in CopyFiles */,
++				6E8A1AA624A559D700B0A1A4 /* WMAccountStoreFactory.h in CopyFiles */,
++				6E8A1AA724A559D700B0A1A4 /* WMAccountAuthenticationFactory.h in CopyFiles */,
++				6E8A1AA824A559D700B0A1A4 /* WMAccountAuthentication.h in CopyFiles */,
+ 			);
+ 			runOnlyForDeploymentPostprocessing = 0;
+ 		};
+@@ -215,11 +239,30 @@
+ 		};
+ /* End PBXGroup section */
+ 
++/* Begin PBXHeadersBuildPhase section */
++		6E8A1A9924A5596800B0A1A4 /* Headers */ = {
++			isa = PBXHeadersBuildPhase;
++			buildActionMask = 2147483647;
++			files = (
++				6E8A1A9A24A5599D00B0A1A4 /* WMUser.h in Headers */,
++				6E8A1A9B24A5599D00B0A1A4 /* WMSSO.h in Headers */,
++				6E8A1A9C24A5599D00B0A1A4 /* WMUserAdapter.h in Headers */,
++				6E8A1A9D24A5599D00B0A1A4 /* WMAccountStore.h in Headers */,
++				6E8A1A9E24A5599D00B0A1A4 /* WMAccountStoreFactory.h in Headers */,
++				6E8A1A9F24A5599D00B0A1A4 /* WMAccountManager.h in Headers */,
++				6E8A1AA024A5599D00B0A1A4 /* WMAccountAuthenticationFactory.h in Headers */,
++				6E8A1AA124A5599D00B0A1A4 /* WMAccountAuthentication.h in Headers */,
++			);
++			runOnlyForDeploymentPostprocessing = 0;
++		};
++/* End PBXHeadersBuildPhase section */
++
+ /* Begin PBXNativeTarget section */
+ 		F0F607A41F477DB4009D114D /* WMSSOReactNative */ = {
+ 			isa = PBXNativeTarget;
+ 			buildConfigurationList = F0F607AE1F477DB4009D114D /* Build configuration list for PBXNativeTarget "WMSSOReactNative" */;
+ 			buildPhases = (
++				6E8A1A9924A5596800B0A1A4 /* Headers */,
+ 				F0F607A11F477DB4009D114D /* Sources */,
+ 				F0F607A21F477DB4009D114D /* Frameworks */,
+ 				F0F607A31F477DB4009D114D /* CopyFiles */,
+@@ -399,11 +442,8 @@
+ 			buildSettings = {
+ 				DEFINES_MODULE = YES;
+ 				DEVELOPMENT_TEAM = F7HDEWM8SU;
+-				HEADER_SEARCH_PATHS = (
+-					"${SRCROOT}/../**",
+-					"${SRCROOT}/../../../../ios/Pods/Headers/**",
+-				);
+-				LIBRARY_SEARCH_PATHS = "${SRCROOT}/../**";
++				HEADER_SEARCH_PATHS = "";
++				LIBRARY_SEARCH_PATHS = "";
+ 				OTHER_LDFLAGS = "-ObjC";
+ 				PRODUCT_NAME = "$(TARGET_NAME)";
+ 				SKIP_INSTALL = YES;
+@@ -415,11 +455,8 @@
+ 			buildSettings = {
+ 				DEFINES_MODULE = YES;
+ 				DEVELOPMENT_TEAM = F7HDEWM8SU;
+-				HEADER_SEARCH_PATHS = (
+-					"${SRCROOT}/../**",
+-					"${SRCROOT}/../../../../ios/Pods/Headers/**",
+-				);
+-				LIBRARY_SEARCH_PATHS = "${SRCROOT}/../**";
++				HEADER_SEARCH_PATHS = "";
++				LIBRARY_SEARCH_PATHS = "";
+ 				OTHER_LDFLAGS = "-ObjC";
+ 				PRODUCT_NAME = "$(TARGET_NAME)";
+ 				SKIP_INSTALL = YES;

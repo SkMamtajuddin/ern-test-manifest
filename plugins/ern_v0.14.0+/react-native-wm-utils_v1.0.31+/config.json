@@ -1,0 +1,49 @@
+{
+  "android": {
+    "root": "android",
+    "dependencies": [
+      "com.jakewharton:process-phoenix:2.0.0"
+    ],
+    "permissions": [
+      "android.permission.ACCESS_WIFI_STATE"
+    ],
+    "copy": [
+      {
+        "source": "android/src/main/res/*",
+        "dest": "lib/src/main/res/wmutils"
+      }
+    ],
+    "replaceInFile": [
+      {
+        "path": "lib/src/main/java/com/wmutils/NotificationSoundHandler.java",
+        "string": "package com.wmutils;",
+        "replaceWith": "package com.wmutils;\nimport com.walmartlabs.ern.container.R;"
+      }
+    ]
+  },
+  "ios": {
+    "copy": [
+      {
+        "dest": "{{{projectName}}}/Libraries/RNWmUtils",
+        "source": "ios/*"
+      }
+    ],
+    "pbxproj": {
+      "addHeaderSearchPath": [
+        "\"$(SRCROOT)/{{{projectName}}}/Libraries/RNWmUtils/**\""
+      ],
+      "addProject": [
+        {
+          "group": "Libraries",
+          "path": "RNWmUtils/RNWmUtils.xcodeproj",
+          "staticLibs": [
+            {
+              "name": "libRNWmUtils.a",
+              "target": "RNWmUtils"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
